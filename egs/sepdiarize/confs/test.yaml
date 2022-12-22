@@ -1,0 +1,36 @@
+sep_ckpt: 
+vad_ckpt: 
+css:
+  window_type: hanning
+  window_size: #120
+  stride: 60
+  lookbehind: 0
+  lookahead: 0
+vad:
+  type: tcn
+  median_filter: 50
+  threshold: 0.90
+  del_factor: 0.25
+leakage_removal:
+  seg_length: #0.01
+  threshold: 3
+opt:
+  use_gpu: yes
+  eval_ss: yes
+data:
+  root_test: 
+  audio_dir: mix
+  audio_oracle_dir: wav
+  ref_rttm_dir: rttm
+  out_dir: 
+
+# Disabling hydra automatic logging
+defaults:  
+  - _self_  
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled
+              
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .

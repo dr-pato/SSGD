@@ -1,0 +1,50 @@
+debug: false
+test_from_checkpoint: null
+resume_from_checkpoint: null 
+ckpt: null
+gpus: 1
+feats:
+  n_mels: 40
+  sample_rate: 8000
+  win_length: 200
+  hop_length: 80
+  f_min: 70
+  f_max: 3400
+data:
+  samplerate: 8000
+  root_fisher: 
+  parsed: 
+vad:
+  bn_chan: 64
+  hid_chan: 128
+  n_repeats: 3
+  n_blocks: 5
+  norm_type: bN
+  n_out: 1
+  ksz: 3
+  freeze_bn: False
+  n_t_masks: 4
+  n_f_masks: 2
+  t_mask_len: 5
+  f_mask_len: 10
+  use_input_mix: False
+opt:
+  lr: 1e-5
+  weight_decay: 1e-7
+scheduler:
+  patience: 20
+  reduce_f: 0.5
+training:
+  vad_loss_pos_weight: 0.9
+  oversample: 1
+  segment: 5
+  max_epochs: 500
+  batch_size: 256
+  n_workers: 8
+  gradient_clip: 5
+  early_stop_patience: 40
+  validation_interval: 1
+  backend: null
+  accumulate_batches: 1
+htuning:
+  n_calls: 200

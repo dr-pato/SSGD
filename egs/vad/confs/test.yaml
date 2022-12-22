@@ -1,0 +1,24 @@
+ckpt: /raid/users/popcornell/FisherPrice/egs/vad/outputs/2022-03-23/13-56-40/default/version_0/epoch=22-step=224640.ckpt
+type: energy
+vad:
+  median_filter: 50
+  threshold: 0.9
+  del_factor: 0
+opt:
+  use_gpu: yes
+data:
+  root_test: /raid/users/gmorrone/data/AGEVOLA/Fisher_wavs/clean_rttm_partial/test_set
+  audio_dir: wav
+  ref_rttm_dir: rttm
+  out_dir: /raid/users/gmorrone/data/AGEVOLA/Fisher_wavs/clean_rttm_partial/test_set/outputs/test
+
+# Disabling hydra automatic logging
+defaults:  
+  - _self_  
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled
+              
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .

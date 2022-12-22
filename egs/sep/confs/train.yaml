@@ -1,0 +1,36 @@
+debug: False
+test_from_checkpoint: null
+resume_from_checkpoint: null
+ckpt: null
+gpus: 1
+data:
+  samplerate: 8000
+  fully_ovl: 
+  root_fisher: 
+  parsed: 
+opt:
+  lr: 1e-3
+  weight_decay: 1e-8
+scheduler:
+  patience: 20
+  reduce_f: 0.5
+css:
+  window_type: hanning
+  window_size: #60
+  stride: 30
+  lookbehind: 0
+  lookahead: null
+training:
+  oversample: 1
+  oversample_synt: 0
+  net: convtasnet
+  causal: True
+  segment: 60
+  max_epochs: 500
+  batch_size: 1
+  n_workers: 8
+  gradient_clip: 5
+  early_stop_patience: 20
+  validation_interval: 1
+  backend: null
+  accumulate_batches: 1

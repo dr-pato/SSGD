@@ -1,0 +1,16 @@
+sep_ckpt: 
+vad_ckpt: 
+data:
+  samplerate: 8000
+  adapt_set: #
+  adapt_parsed: #
+  oracle_sources: no
+css:
+  window_type: hanning
+  window_size: #120
+  stride: 60
+  lookbehind: 0
+  lookahead: 0
+htuning:
+  n_calls: 200
+
